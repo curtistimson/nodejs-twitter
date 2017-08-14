@@ -8,10 +8,10 @@ app.set('port', (process.env.PORT || 5000));
 app.get('/latest-tweet', (req, res) => {
 
     var client = new Twitter({
-      consumer_key: 'XXX',
-consumer_secret: 'XXX',
-access_token_key: 'XXX-XXX',
-access_token_secret: 'XXX'
+      consumer_key: process.env.twitter_consumer_key,
+      consumer_secret: process.env.twitter_consumer_secret
+      access_token_key: process.env.twitter_access_token_key,
+      access_token_secret: process.env.twitter_access_token_secret
     });
 
     res.setHeader('Content-Type', 'application/json');
