@@ -1,8 +1,8 @@
 {
   "name": "nodejs-twitter",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/curttimson/nodejs-twitter#readme",
   "dependencies": {
+    "express": "^4.15.4",
     "express-generator": "^4.15.0",
     "twitter": "^1.7.1"
   }
