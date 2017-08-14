@@ -3,13 +3,15 @@ var Twitter = require('twitter');
 
 var app = express();
 
+app.set('port', (process.env.PORT || 5000));
+
 app.get('/latest-tweet', (req, res) => {
 
     var client = new Twitter({
       consumer_key: 'XXX',
-      consumer_secret: 'XXX',
-      access_token_key: 'XXX-XXX',
-      access_token_secret: 'XXX'
+consumer_secret: 'XXX',
+access_token_key: 'XXX-XXX',
+access_token_secret: 'XXX'
     });
 
     res.setHeader('Content-Type', 'application/json');
@@ -35,4 +37,4 @@ app.get('/latest-tweet', (req, res) => {
    //res.send(JSON.stringify({ a: 1 }));
 });
 
-app.listen(80);
+app.listen(app.get('port'));
