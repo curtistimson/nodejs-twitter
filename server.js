@@ -22,6 +22,7 @@ app.get('/latest-tweet', (req, res) => {
     });
 
     res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     // https://dev.twitter.com/rest/reference/get/statuses/user_timeline
     client.get('statuses/user_timeline', { screen_name: process.env.twitter_username, count: 100 }, function(error, tweets, response) {
