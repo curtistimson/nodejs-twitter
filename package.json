@@ -19,6 +19,7 @@
   "dependencies": {
     "express": "^4.15.4",
     "express-generator": "^4.15.0",
-    "twitter": "^1.7.1"
+    "twitter": "^1.7.1",
+    "twitter-text": "^1.14.7"
   }
 }
