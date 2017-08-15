@@ -25,18 +25,19 @@ app.get('/latest-tweet', (req, res) => {
     // https://dev.twitter.com/rest/reference/get/statuses/user_timeline
     client.get('statuses/user_timeline', { screen_name: process.env.twitter_username, count: 1 }, function(error, tweets, response) {
       if (!error) {
-
-        var latestTweet = {
-          text: tweets[0].text
-        };
-
-
-        res.send(JSON.stringify({ tweet: latestTweet }));
+        res.send(JSON.stringify({ tweet: formatTweet(tweets[0]) }));
       }
       else {
         res.status(500).json({ error: error });
       }
     });
+
+    var formatTweet = function(tweet){
+
+      return {
+        text: tweet.text
+      };
+    }
 
 });
 
