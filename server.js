@@ -1,5 +1,6 @@
 var express = require('express');
 var Twitter = require('twitter');
+var twitterText = require('twitter-text')
 
 var app = express();
 
@@ -23,20 +24,21 @@ app.get('/latest-tweet', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     // https://dev.twitter.com/rest/reference/get/statuses/user_timeline
-    client.get('statuses/user_timeline', { screen_name: process.env.twitter_username, count: 1 }, function(error, tweets, response) {
+    client.get('statuses/user_timeline', { screen_name: process.env.twitter_username, count: 100 }, function(error, tweets, response) {
       if (!error) {
-
-        var latestTweet = {
-          text: tweets[0].text
-        };
-
-
-        res.send(JSON.stringify({ tweet: latestTweet }));
+        res.send(JSON.stringify({ tweet: formatTweet(tweets[1]) }));
       }
       else {
         res.status(500).json({ error: error });
       }
     });
+
+    var formatTweet = function(tweet){
+      return {
+        text: tweet.text,
+        html: twitterText.autoLink(twitterText.htmlEscape(tweet.text))
+      };
+    }
 
 });
 
