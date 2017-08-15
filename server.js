@@ -17,7 +17,7 @@ app.get('/latest-tweet', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     // https://dev.twitter.com/rest/reference/get/statuses/user_timeline
-    client.get('statuses/user_timeline', { screen_name: 'lvel', count: 1 }, function(error, tweets, response) {
+    client.get('statuses/user_timeline', { screen_name: process.env.twitter_username, count: 1 }, function(error, tweets, response) {
       if (!error) {
 
         var latestTweet = {
