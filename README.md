@@ -9,3 +9,9 @@ Examples of the configuration required are provided in the `.env.sample` file.
 ```
 npm run watch
 ```
+
+## Production
+
+```
+npm run prod
+```

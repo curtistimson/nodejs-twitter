@@ -1,12 +1,12 @@
 {
   "name": "nodejs-twitter",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "",
   "main": "server.js",
   "scripts": {
     "build": "babel ./src --out-dir dist",
     "lint": "eslint .",
-    "start": "babel-node ./src/bin/www.js",
+    "start": "npm run prod",
     "server": "babel-node ./src/bin/www.js",
     "dev": "NODE_ENV=development npm-run-all server",
     "watch": "nodemon",
