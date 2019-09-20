@@ -4,8 +4,6 @@ import twitterText from 'twitter-text';
 
 const app = express();
 
-app.set('port', (process.env.PORT || 5000));
-
 app.get('/latest-tweet', (req, res) => {
   const client = new Twitter({
     consumer_key: process.env.twitter_consumer_key,
@@ -31,4 +29,4 @@ app.get('/latest-tweet', (req, res) => {
   });
 });
 
-app.listen(app.get('port'));
+export default app;

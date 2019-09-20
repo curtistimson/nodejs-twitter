@@ -6,8 +6,8 @@
   "scripts": {
     "build": "babel ./src --out-dir dist",
     "lint": "eslint .",
-    "start": "babel-node ./src/index.js",
-    "server": "babel-node ./src/index.js",
+    "start": "babel-node ./src/bin/www.js",
+    "server": "babel-node ./src/bin/www.js",
     "dev": "NODE_ENV=development npm-run-all server",
     "watch": "nodemon"
   },
