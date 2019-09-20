@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "lint": "eslint .",
     "start": "node ./src/index.js",
     "watch": "nodemon ./src/index.js"
   },
@@ -25,6 +26,9 @@
     "twitter-text": "^1.14.7"
   },
   "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
     "nodemon": "^1.19.2"
   }
 }
