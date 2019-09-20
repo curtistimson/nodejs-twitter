@@ -1,5 +1,5 @@
 import express from 'express';
-import getTweets from '../helpers/getTweets'
+import getTweets from '../helpers/getTweets';
 import formatTweet from '../helpers/formatTweet';
 
 const router = express.Router();
