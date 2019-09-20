@@ -1,7 +1,6 @@
 import express from 'express';
-
-const Twitter = require('twitter');
-const twitterText = require('twitter-text');
+import Twitter from 'twitter';
+import twitterText from 'twitter-text';
 
 const app = express();
 
