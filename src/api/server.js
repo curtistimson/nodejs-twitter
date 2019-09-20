@@ -1,4 +1,5 @@
-const express = require('express');
+import express from 'express';
+
 const Twitter = require('twitter');
 const twitterText = require('twitter-text');
 
