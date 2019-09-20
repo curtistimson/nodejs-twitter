@@ -8,12 +8,6 @@ app.set('port', (process.env.PORT || 5000));
 
 app.get('/latest-tweet', (req, res) => {
 
-    // If undefined in our process load our local file
-    // (i.e. we aren't on an external server where we set these differently)
-    if(!process.env.twitter_consumer_key) {
-      var env = require('./env.js')
-    }
-
     var client = new Twitter({
       consumer_key: process.env.twitter_consumer_key,
       consumer_secret: process.env.twitter_consumer_secret,
