@@ -1,26 +1,17 @@
 import express from 'express';
-import Twitter from 'twitter';
+import getTweets from '../helpers/getTweets'
 import formatTweet from '../helpers/formatTweet';
 
 const router = express.Router();
 
 router.get('/latest-tweet', (req, res) => {
-  const client = new Twitter({
-    consumer_key: process.env.twitter_consumer_key,
-    consumer_secret: process.env.twitter_consumer_secret,
-    access_token_key: process.env.twitter_access_token_key,
-    access_token_secret: process.env.twitter_access_token_secret,
-  });
-
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  client.get('statuses/user_timeline', { screen_name: process.env.twitter_username, count: 100 }, (error, tweets) => {
-    if (!error) {
-      res.send(JSON.stringify({ tweet: formatTweet(tweets[0].text) }));
-    } else {
-      res.status(500).json({ error });
-    }
+  getTweets().then((tweets) => {
+    res.send(JSON.stringify({ tweet: formatTweet(tweets[0].text) }));
+  }).catch((error) => {
+    res.status(500).json({ error });
   });
 });
 
