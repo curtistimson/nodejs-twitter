@@ -10,7 +10,8 @@
     "server": "babel-node ./src/bin/www.js",
     "dev": "NODE_ENV=development npm-run-all server",
     "watch": "nodemon",
-    "test": "jest"
+    "test": "jest",
+    "prod": "npm run build && NODE_ENV=production node ./dist/bin/www"
   },
   "repository": {
     "type": "git",
