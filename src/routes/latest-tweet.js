@@ -1,7 +1,6 @@
 import express from 'express';
-
 import Twitter from 'twitter';
-import twitterText from 'twitter-text';
+import formatTweet from '../helpers/formatTweet';
 
 const router = express.Router();
 
@@ -17,13 +16,8 @@ router.get('/latest-tweet', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 
   client.get('statuses/user_timeline', { screen_name: process.env.twitter_username, count: 100 }, (error, tweets) => {
-    const formatTweet = (tweet) => ({
-      text: tweet.text,
-      html: twitterText.autoLink(twitterText.htmlEscape(tweet.text)),
-    });
-
     if (!error) {
-      res.send(JSON.stringify({ tweet: formatTweet(tweets[0]) }));
+      res.send(JSON.stringify({ tweet: formatTweet(tweets[0].text) }));
     } else {
       res.status(500).json({ error });
     }
